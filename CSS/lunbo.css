@@ -1,0 +1,427 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    
+   
+   
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* 主容器样式 */
+.left_top {
+    margin-top: 40px;
+    max-width: 1260px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.37);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    padding: 35px;
+    position: relative;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 标题样式 */
+.title {
+    color: #1a5fb4;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6b6b, #2a7de1);
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 轮播容器样式 */
+.video-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    background: rgba(245, 248, 255, 0.8);
+    padding: 15px;
+}
+
+/* 轮播轨道 */
+.video-carousel {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    height: 100%;
+    width: 100%;
+}
+
+/* 单个视频项 */
+.video-item {
+    flex: 0 0 25%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    padding: 15px;
+    transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.video-item:hover {
+    transform: translateY(-15px) scale(1.03);
+    z-index: 2;
+}
+
+/* 视频缩略图 */
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 65%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    background-size: cover;
+    background-position: center;
+    transition: all 0.4s ease;
+}
+
+.video-item:hover .video-thumbnail {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* 播放按钮 */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(184, 34, 34, 0.664);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 28px;
+    color: #c0c4c9;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+    opacity: 0.9;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-item:hover .play-icon {
+    background: #1a5fb4;
+    color: white;
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+    box-shadow: 0 8px 20px rgba(26, 95, 180, 0.4);
+}
+
+/* 视频标题 */
+.video-title {
+    color: #1a2a6c;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 18px;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.35s;
+    padding: 0 10px;
+}
+
+.video-item:hover .video-title {
+    color: #d62828;
+    transform: translateY(-8px);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* 视频时长样式 */
+.video-duration {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+.video-item:hover .video-duration {
+    background: rgba(178, 31, 31, 0.9);
+}
+
+/* 导航按钮 */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.92);
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.23);
+    font-size: 26px;
+    color: #1a5fb4;
+}
+
+.carousel-nav:hover {
+    background: #1a5fb4;
+    color: white;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 10px 25px rgba(26, 95, 180, 0.4);
+}
+
+.prev {
+    left: 25px;
+}
+
+.next {
+    right: 25px;
+}
+
+/* 指示器 */
+.carousel-indicators {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.indicator.active {
+    background: #ff6b6b;
+    transform: scale(1.4);
+}
+
+.indicator:hover:not(.active) {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* 视频播放器容器 - 修改后样式 */
+.video-player-container {
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    
+}
+
+.video-player-container.active {
+    opacity: 1;
+    left: 0; /* 向左移动 */
+    pointer-events: all;
+
+}
+
+.video-player {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+    transform: translateY(0);
+    transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.video-player-container.active .video-player {
+    transform: translateY(0) rotateY(5deg); /* 添加一些3D效果 */
+}
+
+video {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.close-player {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: rgba(255, 255, 255, 0.92);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: #1a5fb4;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    z-index: 10;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.close-player:hover {
+    background: #ff6b6b;
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* 底部装饰样式 */
+.footer-decor {
+    height: 40px;
+    background: linear-gradient(90deg, #2a7de1, #ff6b6b, #2a7de1);
+    border-radius: 0 0 20px 20px;
+    margin: -30px;
+    margin-top: 20px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-decor:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 15px,
+        rgba(255, 255, 255, 0.15) 15px,
+        rgba(255, 255, 255, 0.15) 30px
+    );
+    animation: slide 60s linear infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .left_top {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-item {
+        flex: 0 0 33.333%;
+    }
+    
+    .video-carousel-container {
+        height: 420px;
+    }
+    
+    .title {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-item {
+        flex: 0 0 50%;
+    }
+    
+    .video-carousel-container {
+        height: 380px;
+        padding: 10px;
+    }
+    
+    .title {
+        font-size: 2.0rem;
+    }
+    
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .video-player-container.active {
+        transform: scale(0.9) translateX(-10%);
+    }
+}
+
+@media (max-width: 576px) {
+    .video-item {
+        flex: 0 0 100%;
+    }
+    
+    .video-carousel-container {
+        height: 320px;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .video-player-container.active {
+        transform: scale(0.95) translateX(0);
+    }
+    
+    .video-player {
+        width: 95%;
+    }
+}

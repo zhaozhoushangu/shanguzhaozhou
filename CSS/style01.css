@@ -1,0 +1,477 @@
+@charset "utf-8";
+
+/* 原有样式保持不变 */
+.top_logo{
+  overflow: hidden;
+}
+
+/* 原有粒子容器样式（已改为全局粒子，可保留或删除） */
+#particles-container {
+  position: relative;
+  width: 980px; /* 与地图宽度匹配 */
+  height: 200px; /* 自定义高度 */
+  margin: 20px auto 0; /* 上下间距 */
+  margin-left: 80px; /* 与地图对齐 */
+  background: rgba(0, 0, 0, 0.05); /* 更透明的背景 */
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10; /* 确保在背景视频之上 */
+}
+
+/* 确保视频背景不会覆盖粒子 */
+#video-bg {
+  z-index: -1; /* 确保在内容下方 */
+}
+
+/* 粒子容器在移动端的响应式调整 */
+@media (max-width: 768px) {
+  #particles-container {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      height: 150px;
+  }
+}
+
+@font-face {
+  font-family: 'zhangcao';  /* 自定义字体名称 */
+  src: url('../font/狂傲.ttf') format('truetype'); /* 修正路径分隔符 */
+}
+.nav a {
+  font-weight: bold;
+  width: auto; /* 移除固定宽度 */
+  font-family: 'zhangcao', cursive;
+  text-decoration: none;
+  text-align: left; /* 改为居中 */
+  color: rgba(73, 73, 77, 0.986);
+  margin-top: 18px;
+  margin-right: -20px; /* 减小右边距 */
+  padding: 0 10px; /* 减小内边距 */
+  font-size: 20px;
+  transition: all 0.3s;
+  border-right: 1px solid #ddd;
+}
+
+.top_logo img {
+    max-width: 100%; /* 控制图片大小 */
+    height: auto;
+    display: block;
+    margin-right:200px ;
+    padding-bottom: 20px;
+   
+}
+.horizontal-container {
+           /* 启用Flex布局 */
+ 
+  width: 1260px;    
+  height: 600px;       /* 总宽度与导航栏一致 */
+  margin: 20px auto 0;     /* 顶部间距20px，水平居中 */
+}
+
+.container {
+  flex: 0 0 600px;        /* 固定宽度600px */
+  height: 600px;
+  margin-top: 0;           /* 移除原有上边距 */
+  /* 保持原有背景/阴影样式 */
+  
+  border-radius: 15px;
+
+  overflow: hidden;
+}
+.page {
+
+  min-height: 100vh; /* 覆盖整个视口高度 */
+  width: 100%;
+  background: url(../images/background.jpg) center / cover no-repeat fixed; /* 关键修改 */
+  /* 移除原有尺寸限制 */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+}
+/* 新增导航栏容器样式 */
+/* 添加导航栏层级提升 */
+.nav {
+  position: relative;
+  z-index: 10; /* 确保导航栏在粒子效果之上 */
+}
+
+.nav ul {
+  top: 38px;
+  margin-top: 5px;
+  margin-right: 5px;
+  text-align: center;
+  display: flex;
+
+  justify-content: center;
+ 
+
+}
+
+/* 修改导航项样式 */
+.nav li {
+  z-index: 10;
+  margin: 0 10px; /* 项间距 */
+  font-size: 20px; /* 稍微减小字体 */
+  padding: 5px 0;
+  font-family: 'zhangcao', cursive; /* 使用自定义字体 */
+
+}
+
+/* 修改链接样式 */
+.nav a {
+  z-index: 10;
+  border-right: 1px solid #ddd;
+  padding: 0 15px;
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+/* 移除最后一个链接的右边框 */
+.nav a:last-child {
+  border-right: none;
+}
+
+.page1{
+  background: whitesmoke;
+  width: 1170px;
+  height: 7100px;
+  margin: 0px auto;
+  opacity: 0.8;
+}
+.page2{
+  background: whitesmoke;
+  width: 1170px;
+  height: 2800px;
+  margin: 0px auto;
+  opacity: 0.8;
+}
+.page3{
+  background: whitesmoke;
+  width: 1170px;
+  height: 2300px;
+  margin: 0px auto;
+  opacity: 0.8;
+}
+
+/* 在CSS文件末尾添加以下样式 */
+.topbg_box {
+  width: 100%;
+  display: block;
+}
+
+/* 新增：地图容器样式（包裹两个盒子） */
+.map-container {
+  width: 1260px; /* 大于两个盒子总宽度+边距 */
+  margin: 0 auto;
+  overflow: hidden; /* 清除浮动 */
+}
+
+/* 新增：清除浮动工具类（保证布局稳定） */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 修改.left_top样式 */
+.left_top {
+  flex: 0 0 630px;        /* 固定宽度600px */
+    height: 600px;
+    margin-top: 0;           /* 移除原有上边距 */
+    /* 保持原有背景/阴影样式 */
+    background-color: rgba(255, 255, 255, 0.301);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+   
+}
+
+
+@media (max-width: 768px) {
+  .horizontal-container {
+      flex-direction: column; /* 小屏幕改为垂直排列 */
+      align-items: center;
+  }
+  .left_top {
+      margin-left: 0;
+      margin-top: 20px;   /* 添加垂直间距 */
+  }
+}
+
+
+table{
+  border-collapse:collapse;
+  border-spacing:0;}
+img{ 
+ 
+  margin:0; 
+  padding:0; 
+  border:none;}
+fieldset{border:0;}
+form,iframe{
+  margin:0px;
+  padding:0px;}
+iframe{
+  margin:0px;
+  padding:0px;}
+li,ol,ul {list-style:none;}
+a img {
+  border: 0 none;
+    margin: 0; 
+     padding: 0;}
+
+.scroll {
+	width:1500px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.scroll li {
+	float:left;
+	line-height:40px;
+	text-align:center;
+	height: 40px;
+}
+.notice_icon {
+  font-size: 16px;
+        width:26px; 
+        height:10px; 
+			  background:url(../images/public.png) -137px -7px no-repeat;
+			  float:left;
+			  margin-top:15px;
+			  padding-right: 5px;
+			  line-height: 20px;
+			 }
+.notice a { font-size:15px; 
+  color:#302f2f;}
+.notice a:hover { color:#000000;  }
+.notice li { float:left;
+   padding:0 15px;}
+.notice li .icon {width:9px; 
+             height:10px; 
+             background: url(../images/public.png) -7px no-repeat;}
+ .second{left:0;display:none;}
+ .icon {
+       width:6px; 
+       height:6px;
+       margin-right:6px;
+       float:left; 
+      background:url(../images/public.png) 0 0; 
+       margin-top:7px;}
+ .work_Dynamic {
+  background-color: rgba(255, 255, 255, 0.479);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  color: #0b0b0b;
+  width:460px; 
+  height:410px; 
+  margin-left: 80px;
+  margin-bottom: 40px;
+  float: left;
+  margin-top: 40px;
+  overflow:hidden;
+  padding-bottom: 40px;
+              }
+.work_Dynamic .title1 {
+  width:490px;
+  background:url(../images/public.png) bottom no-repeat;
+  font-size:22px;
+  color:#000000;
+  line-height:16px;
+  font-weight:bold;
+  margin-left: 30px;
+  padding-top:20px;
+  margin-bottom:2px;}
+.work_Dynamic .con {
+    width:520px;
+    height:410px; 
+    overflow:hidden;
+    
+    }
+.work_Dynamic .con li {
+    height:20px;
+    font-size:16px;
+    line-height:20px;
+    margin-left: 14px;
+    font-weight: 600;
+    color:#000000;
+    padding:23px 0;
+    }
+.work_Dynamic .con li .date {
+  margin-left: 20px;
+     color:#514b4b;
+    font-size:15px; 
+      }
+      
+
+
+      .work_Dynamic1 {
+        background-color: rgba(255, 255, 255, 0.479);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        color: #0b0b0b;
+        width:450px; 
+        height:410px; 
+        
+        margin-left: 200px;
+        margin-bottom: 40px;
+  float: left;
+  margin-top: 40px;
+        overflow:hidden;
+                    }
+      .work_Dynamic1 .title1 {
+        width:490px;
+        margin-left: 20px;
+        background:url(../images/public.png) bottom no-repeat;
+        font-size:22px;
+        color:#9d1515;
+        line-height:16px;
+        font-weight:bold;
+        padding-top:20px;
+        margin-bottom:2px;}
+      .work_Dynamic1 .con1 {
+          width:520px;
+          height:410px; 
+          overflow:hidden;
+          
+          }
+      .work_Dynamic1 .con1 li {
+          height:20px;
+          font-size:16px;
+          line-height:20px;
+          margin-left: 14px;
+          font-weight: 600;
+          color:#000000;
+          padding:23px 0;
+          }
+      .work_Dynamic1 .con1 li .date {
+        margin-left: 20px;
+        color:#514b4b;
+          font-size:15px; 
+            }
+      
+
+
+            .work_Dynamic2 {
+              background-color: rgba(255, 255, 255, 0.479);
+              border-radius: 15px;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+              overflow: hidden;
+              color: #0b0b0b;
+              width:1240px; 
+              height:480px; 
+              float:left;
+              margin-left: 70px;
+              margin-top: 30px;
+              overflow:hidden;
+                          }
+            .work_Dynamic2 .title2 {
+              width:490px;
+              margin-left: 20px;
+              background:url(../images/public.png) bottom no-repeat;
+              font-size:26px;
+              color:#9d1515;
+              line-height:20px;
+              font-weight:bold;
+              padding-top:20px;
+              margin-bottom:2px;}
+
+               .right_box {
+                width:520px;
+                height:410px; 
+                overflow:scroll;
+               }
+
+
+
+            .work_Dynamic2 .con2 {
+                width:520px;
+                height:410px; 
+                overflow:hidden;
+                
+                }
+            .work_Dynamic2 .con2 li {
+                height:20px;
+                font-size:20px;
+                line-height:24px;
+                margin-left: 14px;
+                color:#0b0b0b;
+                padding:32px 0;
+                }
+            .work_Dynamic2 .con2 li .date {
+                 color:#868181;
+                font-size:18px; 
+                  }
+
+                  .work_Dynamic3 {
+                    background-color: rgba(255, 255, 255, 0.479);
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                    
+                    color: #0b0b0b;
+                    width:400px; 
+                    height:410px; 
+                    overflow: hidden;
+                 
+                    margin-left: 20px;
+                    margin-top: 30px;
+                    
+                                }
+                  .work_Dynamic3 .title3 {
+                    width:400px;
+                    margin-left: 20px;
+                    background:url(../images/public.png) bottom no-repeat;
+                    font-size:22px;
+                    color:#9d1515;
+                    line-height:16px;
+                    font-weight:bold;
+                    padding-top:20px;
+                    margin-bottom:2px;}
+
+/* 地图自适应补充样式 */
+.left_top {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.map-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100% !important;
+    max-width: 1260px;
+    margin: 20px auto !important;
+    padding: 0 15px;
+}
+
+#map_1 {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 400px;
+}
+
+@media (max-width: 1200px) {
+    .map-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .left_top, .intro-container {
+        width: 100% !important;
+        flex: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .left_top {
+        height: 400px !important;
+    }
+    
+    .intro-container {
+        padding: 20px !important;
+        height: auto !important;
+    }
+}

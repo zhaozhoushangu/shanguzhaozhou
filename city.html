@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赵州地域文化</title> 
+    <link rel="stylesheet" href="CSS/style01.css" type="text/css"/>
+    <link rel="stylesheet" href="CSS/cangzhou_map.css" type="text/css"/>
+    <script src="js/echarts.min.js" type="text/javascript"></script>
+    <style>
+        @font-face {
+            font-family: 'zhangcao';
+            src: url('../font/狂傲.ttf') format('truetype');
+        }
+        
+        /* 主容器布局 */
+        .content-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            align-items: stretch; /* 两侧高度一致 */
+        }
+        
+        /* 左侧地图容器（占比更大） */
+        .map-wrapper {
+            flex: 6; /* 地图占比60% */
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(230, 184, 0, 0.25);
+            height: 700px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        
+        #map_1 {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* 右侧介绍容器 */
+        .intro-container {
+            flex: 4; /* 介绍占比40% */
+            width: 100%;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(230, 184, 0, 0.25);
+            height: 700px;
+            background: rgba(255, 255, 255, 0.6);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 介绍标题 */
+        .intro-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(139, 69, 19, 0.3);
+        }
+        
+        .intro-title {
+            font-family: 'zhangcao', cursive;
+            font-size: 2.5rem;
+            color: #8B4513;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .intro-subtitle {
+            font-family: 'zhangcao', cursive;
+            color: #000000;
+            font-size: 1.2rem;
+        }
+        
+        /* 介绍内容 */
+        .intro-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .intro-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #000000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #3E2723;
+            text-align: justify;
+        }
+        
+        .intro-text p {
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            color: #000000;
+            font-weight: bold;
+        }
+        
+        /* 加载动画 */
+        .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 40, 50, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            z-index: 100;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(230, 184, 0, 0.2);
+            border-top: 5px solid #000000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loading-text {
+            color: #000000;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #a99e8d;
+            font-size: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 1200px) {
+            .content-container {
+                flex-direction: column;
+            }
+            
+            .map-wrapper, .intro-container {
+                width: 100%;
+                height: auto;
+                min-height: 500px;
+            }
+        }
+        
+        /* 粒子背景 */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* 导航样式 */
+        .nav-box {
+            justify-content: flex-start;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .nav {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 0;
+            border-radius: 8px;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0 20px;
+            margin: 0;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .nav a.active {
+            color: #000000;
+            font-weight: bold;
+        }
+        
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 20px;
+            background-image: url('./images/background.jpg');
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <div class="nav-box">
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">扇鼓雅韵&nbsp;|</a></li>
+                    <li><a href="history.html">扇鼓源流&nbsp;|</a></li>
+                    <li><a href="kind.html">扇鼓分类&nbsp;|</a></li>
+                    <li><a href="city.html" class="active">赵州地域&nbsp;|</a></li>
+                    <li><a href="making.html">匠心传承&nbsp;|</a></li>   
+                    <li><a href="master.html">鼓坛名家&nbsp;|</a></li>
+                    <li><a href="wenchuang.html">鼓乐亲赏&nbsp;|</a></li>   
+                    <li><a href="reservation.html">鼓韵好物</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 内容区：左侧地图 + 右侧介绍 -->
+        <div class="content-container">
+            <!-- 左侧：石家庄地图（赵州标黄） -->
+            <div class="map-wrapper">
+                <div id="map_1"></div>
+                <div class="loading" id="loading">
+                    <div>
+                        <div class="spinner"></div>
+                        <div class="loading-text">正在加载石家庄地图数据...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：赵州详细介绍 -->
+            <div class="intro-container">
+                <div class="intro-header">
+                    <div class="intro-title">赵州（赵县）文化详解</div>
+                    <div class="intro-subtitle">千年古郡 · 文化瑰宝</div>
+                </div>
+                
+                <div class="intro-content">
+                    <img src="images/zhaozhou.png" alt="赵州桥" class="intro-image">
+                    
+                    <div class="intro-text">
+                        <p>赵州，现称赵县，隶属河北省石家庄市，位于华北平原腹地，是一座拥有2500多年历史的文化古县。作为古赵州治所，这里沉淀了深厚的历史文化底蕴，尤以"一桥、一寺、一鼓、一果"闻名中外。</p>
+                        
+                        <p><span class="highlight">赵州桥（安济桥）</span>是世界现存最古老的单孔敞肩石拱桥，由隋代工匠李春设计建造，距今已有1400余年历史。其"敞肩拱"结构被誉为"世界桥梁史上的奇迹"，被列入世界文化遗产名录。</p>
+                        
+                        <p><span class="highlight">柏林禅寺</span>始建于东汉末年，是中国北方重要的佛教禅宗祖庭，历经千年沧桑仍香火鼎盛。寺内的万佛楼、柏林塔等建筑见证了佛教在华北地区的传播与发展。</p>
+                        
+                        <p><span class="highlight">赵州扇鼓</span>是当地特有的民间艺术形式，起源于明清时期，融合了舞蹈、音乐、说唱等元素，多用于祭祀、庆典等场合，现已被列入河北省非物质文化遗产名录。</p>
+                        
+                        <p>作为"中国雪花梨之乡"，赵州雪梨种植历史超过2000年，其果肉洁白如玉、汁多味甜，明清时期曾作为贡品进献宫廷。每年春季，数十万亩梨花盛开，形成"香雪海"奇观，吸引八方游客。</p>
+                        
+                        <p>此外，赵州还保留有<span class="highlight">陀罗尼经幢</span>（全国现存最高的古经幢）、永通桥（赵州二桥）等重要文物古迹，构成了完整的历史文化体系，是研究华北地区古代政治、经济、文化的重要实物载体。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2023 赵州地域文化地图 | 数据来源:阿里云DataV、赵县人民政府</p>
+        </footer>
+    </div>
+
+    <!-- 脚本文件 -->
+    <script src="js/script3.js" type="text/javascript"></script>
+</body>
+</html>

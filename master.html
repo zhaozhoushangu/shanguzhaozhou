@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼓坛名家</title>
+  <link rel="stylesheet" href="css/master.css" type="text/css"/>
+  <style>
+    @font-face {
+      font-family: 'zhangcao';
+      src: url('../font/逍遥.ttf') format('truetype');
+    }
+    .title0{
+      font-family: 'zhangcao';
+      text-shadow: 0 0 1px #f6f5f5, 0 0 4px #737364;
+      margin-left: 20px;
+      font-size: 48px;
+      margin-top: 40px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body background="./images/background.jpg" style="background-size:100% 100%;background-attachment: fixed;">
+  <!-- 顶部导航栏（添加点击切换功能） -->
+  <div class="nav_box">
+    <div class="nav">
+      <ul>
+        <li><a href="index.html">扇鼓雅韵&nbsp;|</a></li>
+        <li><a href="history.html">扇鼓源流&nbsp;|</a></li>
+        <li><a href="kind.html">扇鼓分类&nbsp;|</a></li>
+        <li><a href="city.html">赵州地域&nbsp;|</a></li>
+        <li><a href="making.html">匠心传承&nbsp;|</a></li>   
+        <li><a href="master.html">鼓坛名家&nbsp;|</a></li>
+        <li><a href="wenchuang.html">鼓乐亲赏&nbsp;|</a></li>   
+        <li><a href="reservation.html">鼓韵好物&nbsp;|</a></li>
+      </ul>
+    </div>
+    
+    <!-- 轮播图容器 -->
+    <div class="swiper" id="swiper">
+      <div class="title0">| 鼓坛名家</div>
+      
+      <!-- 左侧轮播图 -->
+      <div class="swiper-left">
+        <div class="swiperItem b" data-index="0">
+          <a href="#"><img src="images/master1.jpg" alt="汉代"></a>
+        </div>
+        <div class="swiperItem c" data-index="1">
+          <a href="#"><img src="images/master2.jpg" alt="明代"></a>
+        </div>
+        <div class="swiperItem def" data-index="2">
+          <a href="#"><img src="images/master3.jpg" alt="清代"></a>
+        </div>
+        <div class="swiperItem def" data-index="3">
+          <a href="#"><img src="images/master4.jpg" alt="现代"></a>
+        </div>
+      </div>
+      
+      <!-- 右侧轮播图 -->
+      <div class="swiper-right">
+        <div class="swiperItems b" data-index="0">
+          <div class="image-container">
+            <img src="images/master1.jpg" alt="汉代">
+          </div>
+          <div class="description">
+            <h3>汉代</h3>
+            <p>汉代是扇鼓的起源阶段之一，如赵州扇鼓便追溯起源于汉代</p>
+            <p>当时它多是乞讨者所用的工具，搭配演唱行为得以发展，此时扇鼓尚未形成成熟的表演艺术体系</p>
+            <p>无具体的名家记载，其技艺仅以零散的方式在底层群体中口传身授</p>
+          </div>
+        </div>
+        
+        <div class="swiperItems c" data-index="1">
+          <div class="image-container">
+            <img src="images/master2.jpg" alt="明代">
+          </div>
+          <div class="description">
+            <h3>明代</h3>
+            <p><strong>李昭：</strong>宣德、弘治年间制扇高手，有 “李尖头” 之称，其制作的折扇以尖头为特色</p>
+            <p><strong>马勋：</strong>以单根圆头折扇闻名，被誉为 “马圆头”</p>
+            <p><strong>柳玉台：</strong>苏州制扇名手，有 “柳方头” 之称，擅长制作方头折扇</p>
+          </div>
+        </div>
+        
+        <div class="swiperItems def" data-index="2">
+          <div class="image-container">
+            <img src="images/master3.jpg" alt="清代">
+          </div>
+          <div class="description">
+            <h3>清代</h3>
+            <p><strong>龚爵五:</strong>清代光绪年间的竹扇工艺大师。</p>
+            <p><strong>李奎林:</strong>北京人，因行五，人称李五，是清代光绪年间的鼓师。</p>
+            <p><strong>司瑞轩:</strong>约生于清道光年间，艺名随缘乐，是单弦牌子曲创始人。</p>
+          </div>
+        </div>
+        
+        <div class="swiperItems def" data-index="3">
+          <div class="image-container">
+            <img src="images/master4.jpg" alt="现代">
+          </div>
+          <div class="description">
+            <h3>现代</h3>
+            <p><strong>传承人物:</strong> 赵州扇鼓非遗传承人</p>
+            <p><strong>代表作品:</strong> 《扇鼓谣》《赵州情》</p>
+            <p><strong>贡献:</strong> 整理扇鼓乐谱30余首，培养传承人50余人，推动扇鼓进校园</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 底部控制区 -->
+    <div class="bottom-controls">
+      <div class="timeline-decoration">
+        <div class="timeline-line"></div>
+        <div class="timeline-dots"></div>
+      </div>
+      
+      <div class="timeline-labels">
+        <span class="label active" data-index="0">汉代</span>
+        <span class="label" data-index="1">明代</span>
+        <span class="label" data-index="2">清代</span>
+        <span class="label" data-index="3">现代</span>
+      </div>
+  <script src="js/master.js" type="text/javascript"></script>
+</body>
+</html>

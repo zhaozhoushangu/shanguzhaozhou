@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扇鼓源流</title>
+    <link rel="stylesheet" href="css/nongyekeji.css" type="text/css"/>
+    <style>
+        /* 添加的轮播图右侧容器样式 */
+        .gallery-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: -120px;
+            margin-top: 90px;
+            margin-left: 0px;
+        }
+        .right-gallery {
+            width: 720px;
+            height: 606px;
+            display: flex;
+            margin-top: -120px;
+           margin-right: 50px;
+            flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        
+        .right-gallery-top {
+            width: 437px;
+            height: 554px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid #8a5a2d;
+        }
+        
+        .right-gallery-bottom {
+            height: 28%;
+            padding: 15px;
+            overflow-y: auto;
+            font-family: 'SimSun', serif;
+            color: #5a3921;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #f9f3e9, #e8dfd1);
+        }
+        
+        .weapon-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #8a5a2d;
+            font-family: 'KaiTi', serif;
+        }
+        
+        @font-face {
+  font-family: 'zhangcao';  /* 自定义字体名称 */
+  src: url('../font/狂傲.ttf') format('truetype'); /* 修正路径分隔符 */
+}
+          .title01{
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0 0 1px #f6f5f5, 0 0 4px #737364;
+            font-family: 'zhangcao';
+           margin-left: 20px;
+            font-size: 42px;
+           margin-top: -20px;
+            
+          text-align: left;}
+          #video-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1; /* 确保在内容下方 */
+            object-fit: cover; /* 保持比例并覆盖区域 */
+        }
+        
+        
+        .content {
+            position: relative;
+            z-index: 1; /* 确保内容在视频上方 */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* 半透明白色背景 */
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 10px;
+        }
+         
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="nav_box"> 
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">扇鼓雅韵&nbsp;|</a></li>
+                        <li><a href="history.html">扇鼓源流&nbsp;|</a></li>
+                        <li><a href="kind.html">扇鼓分类&nbsp;|</a></li>
+                        <li><a href="city.html">赵州地域&nbsp;|</a></li>
+                        <li><a href="making.html">匠心传承&nbsp;|</a></li>   
+                        <li><a href="master.html" >鼓坛名家&nbsp;|</a></li>
+                        <li><a href="wenchuang.html">鼓乐亲赏&nbsp;|</a></li>   
+                        <li><a href="reservation.html" >鼓韵好物&nbsp;|</a></li>
+                  </ul>
+            </div>
+            <section id="data_content"> 
+                <div class="right-section">
+                    <div class="title01">| 各朝代的扇鼓</div>
+                    <!-- 修改的轮播图区域 -->
+                    <div class="gallery-wrapper">
+                        <!-- 左侧原有轮播图 -->
+                        <div class="gallery-container">
+                            <div class="a">
+                                <div class="b">
+                                    <div class="c">
+                                        <div class="d"><img src="images/his1.jpg" alt="汉代"></div>
+                                        <div class="d"><img src="images/his2.jpg" alt="明代"></div>
+                                        <div class="d"><img src="images/his3.jpg" alt="清代"></div>
+                                        <div class="d"><img src="images/his4.jpg" alt="近现代"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 新增右侧轮播图 -->
+                        <div class="right-gallery">
+                            <div class="right-gallery-top" id="rightTop"></div>
+                            <div class="right-gallery-bottom">
+                                <div class="weapon-title" id="weaponTitle">汉代</div>
+                                <div id="weaponDescription">单刃砍杀兵器，古代军队主要装备之一。刀法讲究劈、砍、刺、撩等，刚猛有力，变化多端。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    
+      <script src="./js/echarts.min.js" type="text/javascript"></script>
+      <script src="./js/gallery.js" type="text/javascript"></script>
+     <script>
+        // 创建粒子画布
+    let canvas = document.createElement("canvas");
+    canvas.id = "particle-canvas";
+    document.body.prepend(canvas); // 添加到body开头
+    
+    // 设置画布样式 - 关键修复
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.zIndex = "1"; // 修改为-1，确保在背景之下
+    canvas.style.pointerEvents = "none"; // 允许鼠标事件穿透
+    
+    // 设置画布尺寸
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let ctx = canvas.getContext("2d");
+        // 粒子系统
+        let particles = [];
+        let pcount = 180; // 粒子数量
+        let actions = ["right", "up", "left", "down", "around"];
+        let action = 0;
+    
+        // 点击切换粒子运动模式
+        document.body.addEventListener("click", function() {
+            action++;
+            action = action % actions.length;
+        });
+    
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = 0.3 + Math.random() * 0.9; // 速度范围0.2-1.0
+                this.size = 1 + this.vx * 2; // 粒子大小基于速度
+            }
+    
+            update() {
+                switch (actions[action]) {
+                    case "right":
+                        this.x += this.vx * 0.8;
+                        if (this.x > canvas.width) this.x = 0;
+                        break;
+                    case "left":
+                        this.x -= this.vx * 0.8;
+                        if (this.x < 0) this.x = canvas.width;
+                        break;
+                    case "up":
+                        this.y -= this.vx * 0.8;
+                        if (this.y < 0) this.y = canvas.height;
+                        break;
+                    case "down":
+                        this.y += this.vx * 0.8;
+                        if (this.y > canvas.height) this.y = 0;
+                        break;
+                    case "around":
+                        let deg = Math.atan2((this.y - canvas.height / 2), (this.x - canvas.width / 2));
+                        let r = Math.sqrt(Math.pow(this.x - canvas.width / 2, 2) + Math.pow(this.y - canvas.height / 2, 2));
+                        this.x = r * Math.cos(deg + this.vx / 200) + canvas.width / 2;
+                        this.y = r * Math.sin(deg + this.vx / 200) + canvas.height / 2;
+                        break;
+                }
+            }
+    
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                // 使用金色主题色 (230, 184, 0)
+                ctx.fillStyle = `rgba(230, 184, 0, ${0.3 * this.vx})`;
+                ctx.fill();
+            }
+        }
+    
+        // 窗口大小调整处理
+        window.onresize = function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+    
+        // 动画循环
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (particles.length < pcount) {
+                particles.push(new Particle());
+            }
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            
+            requestAnimationFrame(animateParticles);
+        }
+    
+        // 初始化粒子
+        for (let i = 0; i < pcount; i++) {
+            particles.push(new Particle());
+        }
+        
+        // 启动动画
+        animateParticles();
+    </script>
+</body>
+</html>

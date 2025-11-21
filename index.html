@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>扇鼓雅韵</title>
+  <link rel="stylesheet" href="css/index.css" type="text/css"/>
+  <script src="js/script2.js" type="text/javascript"></script>
+  <style>
+    /* 添加背景图片样式 */
+    #image-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 保持图片比例并覆盖全屏 */
+      z-index: -1; /* 置于底层，不遮挡其他内容 */
+    }
+  </style>
+</head>
+<body>
+    <!-- 图片背景（替换原视频背景） -->
+    <img src="images/background.jpg" alt="扇鼓背景" id="image-background">
+    <!-- 画布 -->
+    <canvas id="particle-canvas"></canvas>
+
+  <div class="container">
+    <div class="title-container">
+      <h1 class="main-title"><a>扇鼓雅韵</a></h1>
+      <h2 class="sub-title">赵州扇鼓文化传播平台</h2>
+    </div>
+  </div>
+
+  <script>
+    // 定义目标页面数组
+    const pages = [
+      'history.html',
+    ];
+
+    // 添加点击事件监听器
+    document.addEventListener('click', function() {
+      // 随机选择一个页面URL
+      const randomPage = pages[Math.floor(Math.random() * pages.length)];
+      // 跳转到随机选择的页面
+      window.location.href = randomPage;
+    });
+  </script>
+</body>
+</html>

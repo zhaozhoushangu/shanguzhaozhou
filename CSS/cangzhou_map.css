@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+body {
+   
+    
+  
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    flex: 0 0 600px;        /* 固定宽度600px */
+    height: 800px;
+    margin-top: 0;          /* 移除原有上边距 */
+ 
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+
+
+header {
+    background: linear-gradient(90deg, #1a5fb4 0%, #2a7de1 100%);
+    color: white;
+    padding: 25px 40px;
+    text-align: center;
+}
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 1200px;
+    margin: 10px auto;
+    line-height: 1.6;
+}
+.map-container {
+    height: 1040px;
+    width: 1190px;
+    padding: 20px;
+   
+    position: relative;
+}
+
+#map_1 {
+    width: 1200px;
+    height: 850px;
+    
+    border-radius: 10px;
+    overflow: hidden;
+   
+}
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  
+    z-index: 100;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #1a5fb4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loading-text {
+    font-size: 1.2rem;
+    color: #1a5fb4;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #090909;
+    font-size: 0.9rem;
+    font-Weight: 'bold';
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .map-container {
+        height: 500px;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    .map-container {
+        height: 400px;
+    }
+}

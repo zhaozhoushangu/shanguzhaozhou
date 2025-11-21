@@ -1,0 +1,186 @@
+/* 保留您提供的所有原始样式 */
+body {
+    background: url(../images/background.jpg) center / contain no-repeat;
+    font-family: 'kuangao';  /* 自定义字体名称 */
+    background-color: #d3cbcb48;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'kuangao';  /* 自定义字体名称 */
+    src: url('../font/狂傲.ttf') format('truetype'); /* 修正路径分隔符 */
+}
+@font-face {
+    font-family: 'zhangcao';  /* 自定义字体名称 */
+    src: url('../font/狂傲.ttf') format('truetype'); /* 修正路径分隔符 */
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* 作为背景 */
+    pointer-events: none; /* 允许点击穿透 */
+}
+
+
+.nav a {
+    font-weight: bold;
+    width: 1000px; /* 移除固定宽度 */
+    font-family: 'zhangcao', cursive;
+    text-decoration: none;
+    text-align: center; 
+    color: rgba(73, 73, 77, 0.986);
+    margin-top: 18px;
+    margin-right: 20px; /* 减小右边距 */
+    padding: 0 10px; /* 减小内边距 */
+    font-size: 20px;
+    transition: all 0.3s;
+    white-space: nowrap; /* 防止文字换行 */
+}
+/* 修改导航列表样式 */
+.nav ul {
+    top: 38px;
+    margin-top: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* 修改导航项样式 */
+.nav li {
+    margin-left: -30px;
+    font-size: 20px; /* 稍微减小字体 */
+    font-family: 'zhangcao', cursive; /* 使用自定义字体 */
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 auto; /* 居中显示 */
+}
+
+.right-box {
+    flex: 1; 
+    padding: 5px;
+    background-color: 'transparent';
+    border-color: rgb(252, 252, 252);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(244, 243, 243, 0.4);
+    display: flex;
+    margin-top: -10px;
+    margin-left: 80px;
+    height:800px;
+    width:1190px;
+}
+
+.right-box-content {
+    width: 80%;
+    height: 660px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 25px;
+    flex: 1;
+    min-height: 0;
+}
+.grid-item {
+    background-color:rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+}
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+}
+.constitution-title {
+    font-size: 23px;
+    margin-left: 25px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+.constitution-image {
+    width: 115px;
+    height: 125px;
+    margin-right: 8px;
+    object-fit: cover;
+    border-radius: 5px;
+    align-self: center;
+}
+.constitution-desc {
+    font-size: 12px;
+    color: #777;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    color: black;
+    font-family: 仿宋; 
+}
+.feature-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+/* 为每种体质设置不同颜色 */
+.A型 { border-top: 5px solid #8ea196; } /* 平和质 */
+.B型 { border-top: 5px solid #92aaba; } /* 气虚质 */
+.C型 { border-top: 5px solid #8a7d90; } /* 阳虚质 */
+.D型 { border-top: 5px solid #b59b98; } /* 阴虚质 */
+.E型 { border-top: 5px solid #bbae9a; } /* 痰湿质 */
+.F型 { border-top: 5px solid #b6a498; } /* 湿热质 */
+.G型 { border-top: 5px solid #b39693; } /* 血瘀质 */
+.H型 { border-top: 5px solid #a1b1ae; } /* 气郁质 */
+.I型 { border-top: 5px solid #7f8c8d; } /* 特禀质 */

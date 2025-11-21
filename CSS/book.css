@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'zhangcao';
+  src: url('../font/逍遥.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f2eb;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.nav li {
+  margin: 0 15px;
+}
+
+.nav a {
+  font-family: 'zhangcao', cursive;
+  text-decoration: none;
+  color: #000000;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #000000;
+}
+
+
+.title-container {
+  display: flex;
+  justify-content: center; /* 从space-around改为center，使整体居中 */
+  gap: 200px; /* 添加间距，控制两个标题的距离 */
+  margin-top: 30px;
+}
+.main-title {
+  font-family: 'zhangcao', cursive;
+  text-align: center; /* 文本水平居中（核心属性） */
+  font-size: 36px;
+  color: #8b0000;
+  margin: 10px; /* 补充单位，避免语法错误 */
+}
+.content-grid {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 50px;
+  padding-bottom: 80px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.platform-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: #f5d6ab;
+  border: none;
+  border-radius: 20px;
+  font-family: 'zhangcao', cursive;
+  font-size: 20px;
+  color: #5a3d2c;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+  background-color: #e8c18a;
+}

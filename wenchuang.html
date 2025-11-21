@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼓韵好物 - 赵州扇鼓文创</title>
+    <link rel="stylesheet" href="css/wenc1.css" type="text/css"/>
+    <link rel="stylesheet" href="css/wenc2.css" type="text/css"/>
+    <style>
+        .page {
+            width: 100%;
+            padding: 20px 0;
+        }
+        
+        /* 标题样式 */
+        .goods-title {
+            text-align: center;
+            margin: 40px 0;
+            font-family: 华文行楷;
+            color: #333;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+        }
+        
+        .goods-title h1 {
+            font-size: 42px;
+            margin: 0;
+        }
+        
+        /* 商品容器 */
+        .goods-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 商品项样式 */
+        .goods-item {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .goods-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+        
+        .goods-img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+        
+        .goods-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .goods-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'zhangcao', cursive;
+            color: #333;
+        }
+        
+        .goods-desc {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            font-family: 仿宋;
+            line-height: 1.6;
+        }
+        
+        .goods-price {
+            font-size: 22px;
+            color: #8b0000;
+            font-weight: bold;
+            font-family: 'xingyun', cursive;
+        }
+    </style>
+</head>
+<body>
+    <!-- 粒子背景画布 -->
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="page">
+        <div class="nav_box"> 
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">扇鼓雅韵&nbsp;|</a></li>
+                    <li><a href="history.html">扇鼓源流&nbsp;|</a></li>
+                    <li><a href="kind.html">扇鼓分类&nbsp;|</a></li>
+                    <li><a href="city.html">赵州地域&nbsp;|</a></li>
+                    <li><a href="making.html">匠心传承&nbsp;|</a></li>   
+                    <li><a href="master.html" >鼓坛名家&nbsp;|</a></li>
+                    <li><a href="wenchuang.html">鼓乐亲赏&nbsp;|</a></li>   
+                    <li><a href="reservation.html" class="active">鼓韵好物</a></li>
+                </ul>
+            </div>
+
+            <!-- 页面标题 -->
+            <div class="goods-title">
+                <h1>赵州扇鼓文创产品</h1>
+            </div>
+
+            <!-- 商品展示区 -->
+            <div class="goods-container">
+                <!-- 商品1 -->
+                <div class="goods-item">
+                    <img src="images/wc1.jpg" class="goods-img" alt="赵州扇鼓铜器摆件">
+                    <div class="goods-info">
+                        <div class="goods-name">赵州扇鼓铜器摆件</div>
+                        <div class="goods-desc">复刻传统扇鼓造型，采用优质黄铜铸造，工艺精湛，可作为家居装饰或文化礼品。</div>
+                        <div class="goods-price">38.8元</div>
+                    </div>
+                </div>
+
+                <!-- 商品2 -->
+                <div class="goods-item">
+                    <img src="images/wc2.jpg" class="goods-img" alt="正宗赵州扇鼓">
+                    <div class="goods-info">
+                        <div class="goods-name">正宗赵州扇鼓（演奏级）</div>
+                        <div class="goods-desc">遵循古法工艺制作，精选柳木与羊皮，音质浑厚，适合专业演奏与文化传承。</div>
+                        <div class="goods-price">128.0元</div>
+                    </div>
+                </div>
+
+                <!-- 商品3 -->
+                <div class="goods-item">
+                    <img src="images/wc3.jpg" class="goods-img" alt="赵州扇鼓乐谱">
+                    <div class="goods-info">
+                        <div class="goods-name">赵州扇鼓古谱复刻版</div>
+                        <div class="goods-desc">收录失传古谱30首，附演奏注解与历史渊源，宣纸印刷，线装古籍样式。</div>
+                        <div class="goods-price">45.0元</div>
+                    </div>
+                </div>
+
+                <!-- 商品4 -->
+                <div class="goods-item">
+                    <img src="images/wc4.jpg" class="goods-img" alt="扇鼓纹样丝巾">
+                    <div class="goods-info">
+                        <div class="goods-name">扇鼓纹样真丝围巾</div>
+                        <div class="goods-desc">提取扇鼓传统纹样设计，100%桑蚕丝材质，典雅大方，兼具文化内涵与实用性。</div>
+                        <div class="goods-price">89.0元</div>
+                    </div>
+                </div>
+
+                <!-- 商品5 -->
+                <div class="goods-item">
+                    <img src="images/wc5.jpg" class="goods-img" alt="扇鼓制作工具套装">
+                    <div class="goods-info">
+                        <div class="goods-name">扇鼓制作工具套装</div>
+                        <div class="goods-desc">包含制鼓专用工具8件套，附详细教程手册，适合手工爱好者体验传统工艺。</div>
+                        <div class="goods-price">158.0元</div>
+                    </div>
+                </div>
+
+                <!-- 商品6 -->
+                <div class="goods-item">
+                    <img src="images/wc6.jpg" class="goods-img" alt="扇鼓文化纪念册">
+                    <div class="goods-info">
+                        <div class="goods-name">赵州扇鼓文化纪念册</div>
+                        <div class="goods-desc">全彩印刷，收录扇鼓历史、工艺、传承人口述史，含珍贵老照片与田野调查资料。</div>
+                        <div class="goods-price">68.0元</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/echarts.min.js" type="text/javascript"></script>
+    <script src="js/script2.js" type="text/javascript"></script>
+    <script>
+        // 粒子背景效果（保留原样式）
+        let canvas = document.createElement("canvas");
+        canvas.id = "particle-canvas";
+        document.body.prepend(canvas);
+        
+        canvas.style.position = "fixed";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.zIndex = "-1";
+        canvas.style.pointerEvents = "none";
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let ctx = canvas.getContext("2d");
+        
+        let particles = [];
+        let pcount = 180;
+        let actions = ["right", "up", "left", "down", "around"];
+        let action = 0;
+        
+        document.body.addEventListener("click", function() {
+            action++;
+            action = action % actions.length;
+        });
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = 0.3 + Math.random() * 0.9;
+                this.size = 1 + this.vx * 2;
+            }
+            
+            update() {
+                switch (actions[action]) {
+                    case "right":
+                        this.x += this.vx * 0.8;
+                        if (this.x > canvas.width) this.x = 0;
+                        break;
+                    case "left":
+                        this.x -= this.vx * 0.8;
+                        if (this.x < 0) this.x = canvas.width;
+                        break;
+                    case "up":
+                        this.y -= this.vx * 0.8;
+                        if (this.y < 0) this.y = canvas.height;
+                        break;
+                    case "down":
+                        this.y += this.vx * 0.8;
+                        if (this.y > canvas.height) this.y = 0;
+                        break;
+                    case "around":
+                        let deg = Math.atan2((this.y - canvas.height / 2), (this.x - canvas.width / 2));
+                        let r = Math.sqrt(Math.pow(this.x - canvas.width / 2, 2) + Math.pow(this.y - canvas.height / 2, 2));
+                        this.x = r * Math.cos(deg + this.vx / 200) + canvas.width / 2;
+                        this.y = r * Math.sin(deg + this.vx / 200) + canvas.height / 2;
+                        break;
+                }
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(230, 184, 0, ${0.3 * this.vx})`;
+                ctx.fill();
+            }
+        }
+        
+        window.onresize = function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (particles.length < pcount) {
+                particles.push(new Particle());
+            }
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        for (let i = 0; i < pcount; i++) {
+            particles.push(new Particle());
+        }
+        
+        animateParticles();
+    </script>
+</body>
+</html>

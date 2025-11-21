@@ -1,0 +1,277 @@
+
+* {
+   
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+
+  min-height: 100vh; /* 覆盖整个视口高度 */
+  width: 100%;
+  background: url(../images/background.jpg) center / cover no-repeat fixed; /* 关键修改 */
+  /* 移除原有尺寸限制 */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+}
+/* 新增导航栏容器样式 */
+/* 添加导航栏层级提升 */
+.nav {
+  position: relative;
+  z-index: 10; /* 确保导航栏在粒子效果之上 */
+}
+/* 移除最后一个链接的右边框 */
+.nav a:last-child {
+  border-right: none;
+}
+
+
+/* 修改导航列表样式 */
+
+.nav ul {
+  top: 38px;
+  margin-top: 5px;
+  margin-right: 20px;
+  text-align: center;
+  display: flex;
+
+  justify-content: center;
+ 
+
+}
+@font-face {
+  font-family: 'zhangcao';  /* 自定义字体名称 */
+  src: url('../font/狂傲.ttf') format('truetype'); /* 修正路径分隔符 */
+}
+.nav a {
+  font-weight: bold;
+  width: auto; /* 移除固定宽度 */
+  font-family: 'zhangcao', cursive;
+  text-decoration: none;
+  text-align: left; /* 改为居中 */
+  color: rgba(73, 73, 77, 0.986);
+  margin-top: 18px;
+  margin-right: -20px; /* 减小右边距 */
+  padding: 0 10px; /* 减小内边距 */
+  font-size: 20px;
+  transition: all 0.3s;
+  border-right: 1px solid #ddd;
+}
+
+
+/* 修改导航项样式 */
+.nav li {
+  z-index: 10;
+  margin: 0 10px; /* 项间距 */
+  font-size: 20px; /* 稍微减小字体 */
+  padding: 5px 0;
+  font-family: 'zhangcao', cursive; /* 使用自定义字体 */
+
+}
+
+/* 修改链接样式 */
+.nav a {
+  z-index: 10;
+  border-right: 1px solid #ddd;
+  padding: 0 15px;
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+/* 移除最后一个链接的右边框 */
+.nav a:last-child {
+  border-right: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+table{
+  border-collapse:collapse;
+  border-spacing:0;}
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+li,ol,ul {list-style:none;}
+
+
+.brand_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  padding: 10px 0px 0px 15px;
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'daohanglan';
+  src: url('../fonts/狂傲.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.brand_nav .left-top ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.brand_nav .left-top ul .list1 {
+  margin-right: 10px;
+}
+
+.brand_nav .left-top ul .list1 a {
+  font-family: 'daohanglan';
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand_nav .left-top ul .list1 img {
+  width: 45px;
+  height: 45px;
+  vertical-align: middle;
+}
+/* 主容器 */
+@font-face {
+  font-family: 'zhangcao';  /* 自定义字体名称 */
+  src: url('../font/狂傲.ttf') format('truetype'); /* 修正路径分隔符 */
+}
+/* 标题样式 */
+.title1, .title2, .title3 {
+  margin-left: 380px;
+  font-family: "zhangcao";
+  color: white;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+/* 右侧区域 */
+.right-section {
+  margin-left: 80px;
+  flex: 0 0 30%;
+  margin-top: 20px;
+  
+  padding: 20px;
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+.gallery-container {
+  width: 100%;
+  height: 80%;
+   margin-right: 20px;
+  justify-content: left;
+  align-items: left;
+  margin-top: 10px;
+}
+.a {
+  position: relative;
+  width: 721px;
+  height: 406px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.b {
+  width: 721px;
+  height: 406px;
+  transition: .4s;
+  background-size: cover;
+  border-radius: 8px;
+}
+.c {
+  width: 721px;
+  height: 406px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.d {
+  position: relative;
+  width: 35%;
+  height: 20%;
+  transition: .5s;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: -80px;
+}
+.d img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  transition: .5s;
+  transform: translate(0, -20%);
+}
+.d.dd {
+  opacity: 0;
+}
+.d:hover img {
+  opacity: 0;
+}
+/* 响应式设计 */
+@media (max-width: 1400px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-section, .middle-section, .right-section {
+    flex: 0 0 100%;
+    height: auto;
+    min-height: 600px;
+  }
+}
+@media (max-width: 768px) {
+  .brand_nav .left-top ul .list1 a {
+    font-size: 20px;
+  }
+  .title1, .title2, .title3 {
+    font-size: 20px;
+  }
+  .timeline-image {
+    width: 80px;
+    height: 80px;
+  }
+  .timeline-content {
+    width: 100px;
+    padding: 15px;
+  }
+  .d {
+    height: 15%;
+  }
+}
+@media (max-width: 480px) {
+  .brand_nav .left-top ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .brand_nav .left-top ul .list1 {
+    margin-bottom: 10px;
+  }
+  .timeline-item {
+    flex-direction: column !important;
+    margin-bottom: 60px;
+  }
+  .timeline-image {
+    margin-bottom: 20px;
+  }
+  .timeline-content {
+    margin: 0;
+  }
+  .c {
+    flex-wrap: wrap;
+  }
+  .d {
+    width: 45%;
+    margin-bottom: 15px;
+    height: auto;
+  }
+}

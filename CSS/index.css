@@ -1,0 +1,85 @@
+/* 1. 首先定义字体 */
+@font-face {
+  font-family: 'zhangcao';  /* 自定义字体名称 */
+  src: url('../font/狂傲.ttf') format('truetype'); /* 修正路径分隔符 */
+}
+
+/* 2. 修改容器样式 */
+.container {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 5rem;
+  font-family: 'zhangcao', cursive; /* 使用自定义字体 */
+  text-shadow: 0 0 1px #f6f5f5, 0 0 4px #737364;
+}
+.nav.li{
+  font-family: 'zhangcao', cursive; /* 使用自定义字体 */
+  text-shadow: 0 0 1px #f6f5f5, 0 0 4px #737364;
+  font-size: 24px;
+}
+
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 确保视频覆盖整个屏幕 */
+  z-index: -1;
+  /* 将视频放在最底层 */
+}
+
+/* 画布样式 */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* 将画布放在视频之上 */
+}
+
+.title-container {
+  text-align: center;
+  /* 确保标题居中对齐 */
+}
+
+.main-title {
+
+  margin-top: 70px;
+  color: #000; /* 字体颜色改为纯黑色 */
+  font-family: 'zhangcao', cursive;
+  text-shadow: 
+    0 0 3px #fff,   /* 白色文字边缘效果 */
+    0 0 5px #fff;   /* 双层边缘增强白色描边 */
+
+  display: inline-block; /* 确保box-shadow生效 */
+  padding: 2px 5px; /* 添加内边距增强阴影效果 */
+}
+
+.sub-title {
+  margin-bottom: 40px;
+  color: #000; /* 字体颜色改为纯黑色 */
+  font-family: 'zhangcao', cursive;
+  text-shadow: 
+    0 0 2px #fff,   /* 白色文字边缘效果 */
+    0 0 4px #fff;   /* 双层边缘增强白色描边 */
+
+  display: inline-block; /* 确保box-shadow生效 */
+  padding: 1px 4px; /* 添加内边距增强阴影效果 */
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* 作为背景 */
+  pointer-events: none;
+  /* 允许点击穿透 */
+}

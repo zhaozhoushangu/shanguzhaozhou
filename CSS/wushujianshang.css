@@ -1,0 +1,497 @@
+/* 武术鉴赏视频轮播CSS样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+}
+
+body {
+   
+   
+    min-height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container_1{
+    
+    width: 100%;
+    height: 98%;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.301);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding-bottom: 30px;
+    z-index: 10;
+}
+
+.martial-arts-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    z-index: 1;
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,10 L40,10 L30,30 Z" fill="%23f39c12"/><path d="M60,20 L80,20 L70,40 Z" fill="%23e74c3c"/><circle cx="30" cy="70" r="10" fill="%23f1c40f"/><circle cx="70" cy="80" r="8" fill="%23e74c3c"/></svg>');
+    background-size: 150px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    animation: fadeInDown 1s ease;
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #f39c12;
+    position: relative;
+    display: inline-block;
+}
+
+.header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 5px;
+    background: linear-gradient(to right, #e74c3c, #f1c40f);
+    border-radius: 3px;
+}
+
+.header p {
+    color: #2d2f30;
+    max-width: 700px;
+    margin: 25px auto 0;
+    line-height: 1.7;
+    font-size: 21px;
+}
+
+.martial-arts-type {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.martial-btn {
+    background: rgba(93, 133, 173, 0.541);
+    border: 2px solid rgba(207, 181, 76, 0.3);
+    color: #f1c40f;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.martial-btn.active, .martial-btn:hover {
+    background: rgba(231, 76, 60, 0.9);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* 武术鉴赏轮播区 */
+.appreciation-carousel {
+    
+    overflow: hidden;
+    position: relative;
+    height: 600px;
+  
+   
+}
+
+.carousel-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.slide-item {
+    flex: 0 0 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(231, 76, 60, 0.6);
+}
+
+.slide-number {
+    background: linear-gradient(to right, #e74c3c, #f39c12);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-right: 20px;
+    box-shadow: 0 6px 12px rgba(231, 76, 60, 0.4);
+}
+
+.slide-title {
+    font-size: 2rem;
+    color: #f1c40f;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content {
+    display: flex;
+    gap: 25px;
+    flex: 1;
+}
+
+.slide-videos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.video-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    height: 160px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.video-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(231, 76, 60, 0.5);
+}
+
+.video-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.video-card:hover img {
+    transform: scale(1.15);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(111, 190, 232, 0.339), rgba(188, 211, 219, 0.271));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.video-card:hover .video-overlay {
+    background: linear-gradient(to top, rgba(231,76,60,0.8), rgba(231,76,60,0.3));
+}
+
+.play-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(207, 116, 11, 0.705);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.video-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(196, 166, 33, 0.702);
+    padding: 7px;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #ecf0f1;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.video-card:hover .video-title {
+    background: rgba(231, 76, 60, 0.95);
+    font-size: 1.15rem;
+}
+
+.slide-info {
+    flex: 0 0 32%;
+    background: rgba(44, 62, 80, 0.7);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(241, 196, 15, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.info-title {
+    font-size: 1.6rem;
+    color: #f39c12;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(231, 76, 60, 0.6);
+}
+
+.info-desc {
+    color: #bdc3c7;
+    font-size: 1rem;
+    line-height: 1.8;
+    flex: 1;
+}
+
+.info-highlight {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(231, 76, 60, 0.2);
+    border-left: 4px solid #e74c3c;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
+
+.info-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-count {
+    font-size: 0.9rem;
+    color: #f1c40f;
+}
+
+.watch-all {
+    background: linear-gradient(to right, #e74c3c, #f39c12);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.watch-all:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* 轮播导航 */
+.carousel-nav {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.nav-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(189, 195, 199, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-dot::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #e74c3c, #f39c12);
+    border-radius: 50%;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.nav-dot.active {
+    transform: scale(1.3);
+}
+
+.nav-dot.active::after {
+    transform: translateY(0);
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(44, 62, 80, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    transition: all 0.4s ease;
+    color: #f1c40f;
+    font-size: 24px;
+    border: 2px solid rgba(241, 196, 15, 0.4);
+}
+
+.carousel-prev {
+    left: 25px;
+}
+
+.carousel-next {
+    right: 25px;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: rgba(231, 76, 60, 0.95);
+    color: white;
+    transform: translateY(-50%) scale(1.15);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #95a5a6;
+    font-size: 0.95rem;
+    padding: 20px;
+    border-top: 1px solid rgba(241, 196, 15, 0.1);
+}
+
+/* 动画效果 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 1000px) {
+    .slide-content {
+        flex-direction: column;
+    }
+    
+    .slide-videos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .appreciation-carousel {
+        height: 1250px;
+    }
+    
+    .carousel-prev, .carousel-next {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .slide-title {
+        font-size: 1.7rem;
+    }
+    
+    .info-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .slide-videos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .appreciation-carousel {
+        height: 950px;
+    }
+    
+    .slide-info {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .slide-videos {
+        grid-template-columns: 1fr;
+    }
+    
+    .appreciation-carousel {
+        height: 1150px;
+    }
+    
+    .video-card {
+        height: 200px;
+    }
+    
+    .martial-arts-type {
+        gap: 10px;
+    }
+    
+    .slide-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .slide-title {
+        font-size: 1.5rem;
+    }
+}
